@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from './User';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'enrollment';
+  public userList:User[];
+
+    constructor() {
+        this.userList = [];
+    }
+
+    createUser(firstName: string, lastName: string, dob: string, gender: string, email: string, phone: string, subject:string) {
+        const user = new User(firstName, lastName, dob, gender, email, phone, subject);
+        this.userList.push(user);
+    }
 }
